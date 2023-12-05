@@ -1,0 +1,27 @@
+<div class="container mt-5 pt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-xl-4 col-md-6">
+      <div class="card">
+        <div class="class-header">
+          My Task List
+        </div>
+        <div class="card-body">
+          <form [formGroup]="taskForm">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Enter new task" formControlName="taskName">
+              <button class="btn btn-primary" type="button" [disabled]="taskForm.invalid" (click)="addTask()">Add Task</button>
+            </div>
+          </form>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let task of taskList">
+              <div class="d-flex justify-content-between">
+                <label>{{task.taskName}}</label>
+                <button class="btn btn-danger btn-sm" type="button" (click)="deleteTask(task)">Delete</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
